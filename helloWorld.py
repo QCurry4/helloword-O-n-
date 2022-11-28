@@ -1,28 +1,34 @@
 import string
 import time
 
-def worstHello() :
+def worstHello(tempString) :
     temp = True
-    helloList = ["h","e", "l", "l", "o", "w", "o","r", "l", "d"]
-    alphabet = list(string.ascii_lowercase)
+    lst = []
+    lst.extend(tempString)
+    alphabet = list(string.ascii_letters)
+    alphabet.insert(5, "ë")
     helloWorld = ""
     counter = 0
 
     while temp :
         for elements in alphabet :
             time.sleep(.05)
-            if helloWorld == "helloworld" :
+            if helloWorld == tempString :
                 temp = False
                 break
 
             print(helloWorld, elements,sep="")
 
-            if elements == helloList[counter] :
+            if " " == lst[counter] :
+                helloWorld += " "
+                break
+            if elements == lst[counter] :
                 helloWorld += elements
                 break
 
         counter += 1
 
 if __name__ == "__main__" :
-    worstHello()
+    temp = input("input a string: ")
+    worstHello(temp)
     
